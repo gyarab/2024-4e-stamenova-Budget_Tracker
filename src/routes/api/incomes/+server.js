@@ -7,13 +7,13 @@ export async function DELETE({ locals, request }) {
 		const recordId = await request.json();
 
 		// Fetch the record to get the amount before deletion
-		const record = await locals.pb.collection('expenses').getOne(recordId);
+		const record = await locals.pb.collection('incomes').getOne(recordId);
 
 		// Parse the amount as a number (in case it's stored as a string)
 		const amount = Number(record.amount);
 
 		// Delete the record from the expenses collection
-		await locals.pb.collection('expenses').delete(recordId);
+		await locals.pb.collection('incomes').delete(recordId);
 
 		// Fetch the user's balance record
 		const userBalanceRecord = await locals.pb
@@ -22,7 +22,7 @@ export async function DELETE({ locals, request }) {
 
 		// Update the user's balance by adding back the deleted amount
 		await locals.pb.collection('balance').update(userBalanceRecord.id, {
-			'balance+': amount
+			'balance-': amount
 		});
 
 		// Return a success response

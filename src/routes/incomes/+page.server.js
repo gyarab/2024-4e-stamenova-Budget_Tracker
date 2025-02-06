@@ -6,13 +6,13 @@ export async function load({ locals }) {
 		throw redirect(303, '/login');
 	}
 
-	const records_req = locals.pb.collection('expenses').getFullList({
+	const records_req = locals.pb.collection('incomes').getFullList({
 		sort: '-date,source,-amount',
 		expand: 'category'
 	});
 
 	const categories_req = locals.pb.collection('category').getFullList({
-		filter: 'type = "expenses"'
+		filter: 'type = "incomes"'
 	});
 
 	const [records, categories] = await Promise.all([records_req, categories_req]);
@@ -29,7 +29,7 @@ export const actions = {
 
 		try {
 			locals.pb
-				.collection('expenses')
+				.collection('incomes')
 				.create({ ...data, user: locals.pb.authStore.model.id })
 				.then(() => {
 					return locals.pb.collection('balance').getFirstListItem(`user.id="${locals.user.id}"`);
@@ -37,13 +37,12 @@ export const actions = {
 				.then(({ id: userBalanceRecord }) => {
 					return locals.pb
 						.collection('balance')
-						.update(userBalanceRecord, { 'balance-': `${data.amount}` });
+						.update(userBalanceRecord, { 'balance+': `${data.amount}` });
 				});
 		} catch (err) {
 			return fail(500, {
 				data: data,
-				message: 'Při vložení záznamu vyskytla neočekávaná chyba',
-				error: err.message
+				message: 'Při vložení záznamu vyskytla neočekávaná chyba'
 			});
 		}
 	},
@@ -60,14 +59,14 @@ export const actions = {
 		const isIncreasing = data.amount > oldAmount;
 
 		try {
-			const updateRecord = await locals.pb.collection('expenses').update(recordId, { ...data });
+			const updateRecord = await locals.pb.collection('incomes').update(recordId, { ...data });
 
 			const userBalanceRecord = await locals.pb
 				.collection('balance')
 				.getFirstListItem(`user.id="${locals.user.id}"`);
 
 			await locals.pb.collection('balance').update(userBalanceRecord.id, {
-				[`balance${isIncreasing ? '-' : '+'}`]: difference
+				[`balance${isIncreasing ? '+' : '-'}`]: difference
 			});
 
 			return {

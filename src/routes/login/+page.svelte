@@ -5,7 +5,6 @@
 </script>
 
 <div class="flex h-full w-full flex-col items-center pt-12">
-	<h4 class="h4 text-rose-500 rounded-md p-1 bg-rose-200">Change this page later</h4>
 	<h2 class="mt-2 text-base-content h2 text-center text-3xl font-bold tracking-tight">
 		Přihláste se, prosím
 	</h2>
@@ -15,11 +14,7 @@
 		</a> pokud ho ještě nemáte.
 	</p>
 	<div class="mt-6 w-full max-w-sm rounded-lg bg-primary-50 py-6 shadow-md">
-		<form
-			method="POST"
-			action="?/login"
-			class="flex w-full flex-col items-center space-y-2"
-		>
+		<form method="POST" action="?/login" class="flex w-full flex-col items-center space-y-2">
 			<div class="form-control w-full max-w-xs">
 				<label for="email" class="label pb-1 font-medium text-black">
 					<span class="label-text">Email</span>

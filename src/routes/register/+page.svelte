@@ -5,7 +5,6 @@
 </script>
 
 <div class="flex h-full w-full flex-col items-center pt-12">
-	<h4 class="h4 text-rose-500 rounded-md p-1 bg-rose-200">Change this page later</h4>
 	<h2 class="mt-2 text-base-content h2 text-center text-3xl font-bold tracking-tight">
 		Registrace nového uživatele
 	</h2>

@@ -17,8 +17,11 @@ export const actions = {
 		data['passwordConfirm'] = data?.password.toString();
 		try {
 			await locals.pb.collection('users').create(data);
-			await locals.pb.collection('users').authWithPassword(data.email, data.password.toString());
+			const { record: userRecord } = await locals.pb
+				.collection('users')
+				.authWithPassword(data.email, data.password.toString());
 			await locals.pb.collection('users').requestVerification(data.email);
+			await locals.pb.collection('balance').create({ user: userRecord.id, balance: 0 });
 		} catch (err) {
 			return fail(500, { email: data.email, error: 'Nepodařilo se vytvořit učet' });
 		}

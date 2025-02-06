@@ -104,7 +104,7 @@
 		<h3 class="h3">Vložit záznam</h3>
 		<form
 			method="post"
-			action="/expenses?/insertRecord"
+			action="/incomes?/insertRecord"
 			use:enhance
 			class="p-4 bg-surface-50 mt-4 shadow rounded-lg space-y-2"
 		>
@@ -113,7 +113,7 @@
 				<input required class="input" type="date" name="date" id="dateInput" />
 			</label>
 			<label class="label">
-				<span>Zdroj (obchodník)</span>
+				<span>Zdroj (odesílatel)</span>
 				<input required class="input" type="text" name="source" placeholder="Zadejte zdroj..." />
 			</label>
 			<label class="label">
@@ -155,7 +155,7 @@
 		</form>
 	</section>
 	<section class="flex-1">
-		<h3 class="h3">Výpis výdajů</h3>
+		<h3 class="h3">Výpis příjmů</h3>
 		{#if !records.length}
 			<div class="bg-surface-50 text-surface-700 mt-4 rounded-lg shadow py-4">
 				<div class="grid place-items-center text-center">

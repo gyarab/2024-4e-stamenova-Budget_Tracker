@@ -19,7 +19,10 @@ export const actions = {
 				.collection('users')
 				.authWithPassword(data.email, data.password);
 		} catch (err) {
-			return fail(401, { email: data.email, error: 'Chybějící nebo chybně zadané příhlašovací údaje' });
+			return fail(401, {
+				email: data.email,
+				error: 'Chybějící nebo chybně zadané příhlašovací údaje'
+			});
 		}
 
 		throw redirect(303, '/');
