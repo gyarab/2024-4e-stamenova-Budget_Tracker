@@ -35,7 +35,7 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">Stamenova - Budget planner</strong>
+				<strong class="text-xl uppercase">Budget tracker</strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				{#if !user}

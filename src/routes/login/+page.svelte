@@ -6,7 +6,7 @@
 
 <div class="flex h-full w-full flex-col items-center pt-12">
 	<h2 class="mt-2 text-base-content h2 text-center text-3xl font-bold tracking-tight">
-		Přihláste se, prosím
+		Přihlaste se, prosím
 	</h2>
 	<p class="mt-1 text-center">
 		Nebo <a href="/register" class="font-medium text-amber-700 hover:cursor-pointer"

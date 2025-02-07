@@ -21,7 +21,7 @@ export const actions = {
 		} catch (err) {
 			return fail(401, {
 				email: data.email,
-				error: 'Chybějící nebo chybně zadané příhlašovací údaje'
+				error: 'Chybějící nebo chybně zadané přihlašovací údaje'
 			});
 		}
 
