@@ -6,7 +6,7 @@ export async function load({ locals }) {
 		throw redirect(303, '/login');
 	}
 
-	const records_req = locals.pb.collection('expenses').getFullList({
+	const records_req = locals.pb.collection('expenses').getFullList({ //vypsání seznamu výdajů z databáze
 		sort: '-date,source,-amount',
 		expand: 'category'
 	});
@@ -20,7 +20,7 @@ export async function load({ locals }) {
 	return { records, categories };
 }
 
-export const actions = {
+export const actions = {							//vytvoření nového výdaje
 	insertRecord: async ({ locals, request }) => {
 		const formData = await request.formData();
 		const data = Object.fromEntries([...formData]);
@@ -34,7 +34,7 @@ export const actions = {
 				.then(() => {
 					return locals.pb.collection('balance').getFirstListItem(`user.id="${locals.user.id}"`);
 				})
-				.then(({ id: userBalanceRecord }) => {
+				.then(({ id: userBalanceRecord }) => {		//aktualizace zůstatku
 					return locals.pb
 						.collection('balance')
 						.update(userBalanceRecord, { 'balance-': `${data.amount}` });
@@ -42,12 +42,12 @@ export const actions = {
 		} catch (err) {
 			return fail(500, {
 				data: data,
-				message: 'Při vložení záznamu vyskytla neočekávaná chyba',
+				message: 'Při vložení záznamu se vyskytla neočekávaná chyba',
 				error: err.message
 			});
 		}
 	},
-	updateRecord: async ({ request, locals, url }) => {
+	updateRecord: async ({ request, locals, url }) => {   //úprava již existujícího výdaje
 		const formData = await request.formData();
 		const data = Object.fromEntries([...formData]);
 
@@ -55,7 +55,7 @@ export const actions = {
 
 		const recordId = url.searchParams.get('recordId');
 
-		const oldAmount = Number(url.searchParams.get('oldAmount'));
+		const oldAmount = Number(url.searchParams.get('oldAmount')); 
 		const difference = Math.abs(data.amount - oldAmount);
 		const isIncreasing = data.amount > oldAmount;
 
@@ -66,7 +66,7 @@ export const actions = {
 				.collection('balance')
 				.getFirstListItem(`user.id="${locals.user.id}"`);
 
-			await locals.pb.collection('balance').update(userBalanceRecord.id, {
+			await locals.pb.collection('balance').update(userBalanceRecord.id, {  //aktualizace zůstatku
 				[`balance${isIncreasing ? '-' : '+'}`]: difference
 			});
 
@@ -77,7 +77,7 @@ export const actions = {
 		} catch (err) {
 			return fail(500, {
 				data: data,
-				message: 'Při aktualizaci záznamu vyskytla neočekávaná chyba',
+				message: 'Při aktualizaci záznamu se vyskytla neočekávaná chyba',
 				error: err.message
 			});
 		}

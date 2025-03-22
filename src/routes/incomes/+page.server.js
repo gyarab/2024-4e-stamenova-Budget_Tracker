@@ -20,7 +20,7 @@ export async function load({ locals }) {
 	return { records, categories };
 }
 
-export const actions = {
+export const actions = {				//vytvoření nového příjmu
 	insertRecord: async ({ locals, request }) => {
 		const formData = await request.formData();
 		const data = Object.fromEntries([...formData]);
@@ -37,7 +37,7 @@ export const actions = {
 				.then(({ id: userBalanceRecord }) => {
 					return locals.pb
 						.collection('balance')
-						.update(userBalanceRecord, { 'balance+': `${data.amount}` });
+						.update(userBalanceRecord, { 'balance+': `${data.amount}` });   //aktualizace zůstatku
 				});
 		} catch (err) {
 			return fail(500, {
@@ -46,7 +46,7 @@ export const actions = {
 			});
 		}
 	},
-	updateRecord: async ({ request, locals, url }) => {
+	updateRecord: async ({ request, locals, url }) => {   //aktualizace již existujícího příjmu
 		const formData = await request.formData();
 		const data = Object.fromEntries([...formData]);
 
@@ -65,7 +65,7 @@ export const actions = {
 				.collection('balance')
 				.getFirstListItem(`user.id="${locals.user.id}"`);
 
-			await locals.pb.collection('balance').update(userBalanceRecord.id, {
+			await locals.pb.collection('balance').update(userBalanceRecord.id, {	//aktualizace zůstatku
 				[`balance${isIncreasing ? '+' : '-'}`]: difference
 			});
 

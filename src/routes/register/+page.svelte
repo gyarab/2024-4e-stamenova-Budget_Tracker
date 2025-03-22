@@ -9,7 +9,7 @@
 		Registrace nového uživatele
 	</h2>
 	<p class="mt-1 text-center">
-		Nebo <a href="/login" class="font-medium text-amber-700 hover:cursor-pointer">se přihlaste </a> pokud
+		Nebo <a href="/login" class="font-medium text-amber-700 hover:cursor-pointer">se přihlaste, </a> pokud
 		již účet máte.
 	</p>
 	<div class="mt-6 w-full max-w-sm rounded-lg bg-primary-50 py-6 shadow-md">

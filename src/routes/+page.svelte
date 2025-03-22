@@ -41,7 +41,7 @@
 					Potřebujeme alespoň <strong>5 transakcí</strong> za poslední <strong>2 měsíce</strong>,
 					abychom mohli vytvořit přesné předpovědi.
 				</p>
-				<p>Pokračujte v používání aplikace a brzy uvidíte své finanční trendy!</p>
+				<p>Pokračujte v používání aplikace a brzy uvidíte své finanční aktivity!</p>
 			</div>
 		{:else}
 			<div class="space-y-4 p-4 my-4 bg-white rounded-lg shadow-lg text-justify">

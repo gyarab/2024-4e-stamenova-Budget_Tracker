@@ -10,7 +10,7 @@
 	</h2>
 	<p class="mt-1 text-center">
 		Nebo <a href="/register" class="font-medium text-amber-700 hover:cursor-pointer"
-			>si zaregistrujte účet
+			>si zaregistrujte účet,
 		</a> pokud ho ještě nemáte.
 	</p>
 	<div class="mt-6 w-full max-w-sm rounded-lg bg-primary-50 py-6 shadow-md">

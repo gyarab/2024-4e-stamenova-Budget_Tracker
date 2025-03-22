@@ -47,7 +47,7 @@
 		}, 500);
 	}
 
-	// Derived store for filtered records
+	// Derived store for filtered records 
 	$: filteredRecords = records.filter((record) => {
 		const matchesSearch =
 			debouncedSearchQuery.toLowerCase().trim() === '' ||
