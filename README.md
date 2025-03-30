@@ -8,8 +8,11 @@
 ## 📊 Funkce
 
 ✅ **Sledujte příjmy a výdaje** – Snadno zaznamenávejte transakce a kategorizujte je pro lepší přehled. 
+
 ✅ **Možnost zadání opakující se platby** 
+
 ✅ **Zobrazení finanční aktivity za určité období pomocí horizontálního sloupcového grafu**
+
 ✅ **Bezpečnost a soukromí** – Vaše finanční data jsou chráněna. 🔒  
 
 ---
