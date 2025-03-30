@@ -26,8 +26,7 @@
    git clone https://github.com/gyarab/2024-4e-stamenova-Budget_Tracker
    ```
 2. **Přejděte do složky projektu**
-   ```bash
-   ```
+
 3. **Nainstalujte závislosti**
    ```bash
    npm install
