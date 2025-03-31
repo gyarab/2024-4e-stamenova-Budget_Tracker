@@ -43,4 +43,4 @@
 - **Frontend:** Sveltekit, HTML, Tailwind CSS  
 - **Backend:** Javascript, Svelte  
 - **Databáze:** PocketBase  
-- **Dokumentace:** LaTex Overleaf - zdrojový kód: https://cs.overleaf.com/read/fnckbzydbbkf#b7665a
+- **Dokumentace:** LaTeX Overleaf - zdrojový kód: https://cs.overleaf.com/read/fnckbzydbbkf#b7665a
